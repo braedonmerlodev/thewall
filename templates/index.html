@@ -1,0 +1,33 @@
+<html>
+    <title>Login & Registration</title>
+    <head>
+            <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+            <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='skeleton.css') }}">
+            <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='normalize.css') }}">
+    </head>
+    <body>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+              {% for message in messages %}
+                <p>{{message}}</p>
+              {% endfor %}
+            {% endif %}
+          {% endwith %}
+        
+        <h1> Welcome! Please Register </h1>
+        <form action="/register" method="post">
+            First name: <input type="text" name="first_name"><br>
+            Last name: <input type="text" name="last_name"><br>
+            Email Address: <input type="text" name="email"><br>
+            Password: <input type="password" name="password"><br>
+            Confirm Password: <input type="password" name="pw_confirm"><br>
+            <input type="submit" value="Submit">
+        </form>
+        <h1> Have A Account? Please Login</h1>
+        <form action="/login" method="post">
+            Email:<input type="text" name="email"><br>
+            Password: <input type="password" name="password"><br>
+            <input type="submit" value="Submit">
+        </form>
+    </body>
+</htmL>
